@@ -2,21 +2,40 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Mvc.Identity101.Data;
 using Mvc.Identity101.Data.Entites;
+using Mvc.Identity101.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AppDbContext>(optionsAction: opt =>
-{
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));
-    // opt.UseSqlServer(co);
-});
+
+builder.Services.AddCustomizedIdentity(builder.Configuration); // DbContext ve Identity servis kayitlari burda
+                                                               // extension method olarak
 
 
-builder.Services.AddIdentity<AppUser, AppRole>()
-    .AddEntityFrameworkStores<AppDbContext>();
-// .AddDefaultTokenProviders() // henuz eklemiyoruz token provideri
+// builder.Services.AddDbContext<AppDbContext>(optionsAction: opt =>
+// {
+//     opt.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));
+//     // opt.UseSqlServer(co);
+// });
+
+// builder.Services.AddIdentity<AppUser, AppRole>(options =>
+//     {
+//         // options.User.AllowedUserNameCharacters="abcdefghi"; // konfigura edebiliriz
+//         options.User.RequireUniqueEmail = true;
+//         options.Password.RequiredLength = 6;
+//         options.Password.RequireNonAlphanumeric = false;
+//         // options.SignIn.RequireConfirmedAccount = true;
+//         // options.SignIn.RequireConfirmedEmail = true;
+//         // options.SignIn.RequireConfirmedPhoneNumber = true;
+//         options.Lockout.MaxFailedAccessAttempts = 5;
+//         options.Lockout.AllowedForNewUsers = true;
+//         options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+//
+//     })
+//     .AddEntityFrameworkStores<AppDbContext>();
+// // .AddDefaultTokenProviders() // henuz eklemiyoruz token provideri // refactored with extension 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
