@@ -1,0 +1,53 @@
+@model Mvc.Identity101.Data.Dto.SignUpDto
+
+@{
+    ViewBag.Title = "Sign Up";
+    Layout = "_Layout";
+}
+
+<h2 class="text-center my-4">Hesap Oluştur</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success text-center" role="alert">
+        @TempData["Message"]
+    </div>
+}
+
+<form asp-action="SignUp" method="post" class="mx-auto" style="max-width: 500px;">
+    @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+    <div class="mb-3">
+        <label asp-for="UserName" class="form-label">Kullanıcı Adı</label>
+        <input asp-for="UserName" class="form-control" placeholder="Kullanıcı adınız" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Phone" class="form-label">Telefon Numarası</label>
+        <input asp-for="Phone" class="form-control" placeholder="(5__) ___ __ __" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">E-posta</label>
+        <input asp-for="Email" class="form-control" placeholder="email@example.com" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label">Şifre</label>
+        <input asp-for="Password" class="form-control" placeholder="Şifreniz" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ConfirmPassword" class="form-label">Şifreyi Onayla</label>
+        <input asp-for="ConfirmPassword" class="form-control" placeholder="Şifreyi tekrar girin" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    <div class="d-grid">
+        <button type="submit" class="btn btn-primary">Hesap Oluştur</button>
+    </div>
+</form>
