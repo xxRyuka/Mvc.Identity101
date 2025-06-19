@@ -1,0 +1,24 @@
+@{
+    if (!User.Identity.IsAuthenticated)
+    {
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-controller="Home" asp-action="SignUp">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-controller="Home" asp-action="SignIn">Sign In</a>
+            </li>
+        </ul>
+    }
+    else
+    {
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">@User.Identity.Name</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-controller="Home" asp-action="SignOut">Logout</a>
+            </li>
+        </ul>
+    }
+}
