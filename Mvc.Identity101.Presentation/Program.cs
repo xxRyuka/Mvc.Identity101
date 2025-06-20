@@ -14,6 +14,10 @@ builder.Services.AddCustomizedIdentity(builder.Configuration); // DbContext ve I
                                                                // extension method olarak
 
 
+
+builder.Services.AddExtendedCookieConfigurations(builder.Configuration);  // cookileri extension methodla ayri biyerde yazdik ve ekledik buraya 
+                                                                            // amaç program.cs karişmasin 
+
 // builder.Services.AddDbContext<AppDbContext>(optionsAction: opt =>
 // {
 //     opt.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));

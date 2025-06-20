@@ -117,13 +117,11 @@ public class HomeController : Controller
     }
 
 
-    [HttpGet]
-    public async Task<IActionResult> SignOut()
+
+    public async Task<IActionResult> AccessDenied()
     {
-         await _signInManager.SignOutAsync();
-        return RedirectToAction("Index");
+        return View();
     }
-    
     
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
