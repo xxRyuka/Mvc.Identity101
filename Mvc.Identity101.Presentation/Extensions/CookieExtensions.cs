@@ -12,7 +12,7 @@ public static class CookieExtensions
             opt.ExpireTimeSpan = TimeSpan.FromMinutes(15);
             opt.SlidingExpiration = true;
             opt.LogoutPath = new PathString("/Member/SignOut");
-            opt.ReturnUrlParameter = "retrunulq"; // customize edebiliyoz
+            opt.ReturnUrlParameter = "returnURL"; // customize edebiliyoz
         });
         
         return services;

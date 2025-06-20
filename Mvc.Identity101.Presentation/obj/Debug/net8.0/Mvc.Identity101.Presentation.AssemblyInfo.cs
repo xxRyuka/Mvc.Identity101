@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mvc.Identity101.Presentation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b53a5dfd2c40676a2c7e33d57212336b7e25f00a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29b485cbdc094715ab1c23108bff1665155cc80b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mvc.Identity101.Presentation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mvc.Identity101.Presentation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

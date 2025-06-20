@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Mvc.Identity101.Data;
 using Mvc.Identity101.Data.Entites;
 using Mvc.Identity101.Extensions;
+using Mvc.Identity101.Services.Abstract;
+using Mvc.Identity101.Services.Concrete;
+using Mvc.Identity101.Services.Data.Dto;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,12 +14,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddCustomizedIdentity(builder.Configuration); // DbContext ve Identity servis kayitlari burda
-                                                               // extension method olarak
+// extension method olarak
 
-
-
-builder.Services.AddExtendedCookieConfigurations(builder.Configuration);  // cookileri extension methodla ayri biyerde yazdik ve ekledik buraya 
-                                                                            // amaç program.cs karişmasin 
+builder.Services.AddMemoryCache(); // Bununla rate limiting yapacağim bir sürü forgot pw gonderirlerse sıkıntı 
+// bunu iyi ogren 
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services
+    .AddExtendedCookieConfigurations(builder
+        .Configuration); // cookileri extension methodla ayri biyerde yazdik ve ekledik buraya 
+// amaç program.cs karişmasin 
 
 // builder.Services.AddDbContext<AppDbContext>(optionsAction: opt =>
 // {

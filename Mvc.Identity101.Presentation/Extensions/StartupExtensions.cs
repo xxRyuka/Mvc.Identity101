@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Mvc.Identity101.Data;
 using Mvc.Identity101.Data.Entites;
@@ -14,6 +15,11 @@ public static class StartupExtensions
             opt.UseSqlServer(configuration.GetConnectionString("SqlConnection"));
         });
 
+        services.Configure<DataProtectionTokenProviderOptions>( opt =>
+        {
+            opt.TokenLifespan = TimeSpan.FromHours(1);
+        });
+            
         services.AddIdentity<AppUser, AppRole>(options =>
         {
             options.User.RequireUniqueEmail = true;
@@ -28,6 +34,7 @@ public static class StartupExtensions
         })
         .AddPasswordValidator<CustomValidations.CustomPasswordValidation>()
         .AddUserValidator<CustomValidations.CustomUserValidation>()
+        .AddDefaultTokenProviders()
         .AddEntityFrameworkStores<AppDbContext>();
 
         return services;
