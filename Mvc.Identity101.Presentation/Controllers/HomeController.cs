@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Mvc.Identity101.Data.Dto;
 using Mvc.Identity101.Data.Entites;
 using Mvc.Identity101.Models;
@@ -15,14 +16,16 @@ public class HomeController : Controller
     private readonly UserManager<AppUser> _userManager;
     private readonly SignInManager<AppUser> _signInManager;
     private readonly IEmailService _emailService;
+    private readonly IMemoryCache _cache;
 
     public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager,
-        SignInManager<AppUser> signInManager, IEmailService emailService)
+        SignInManager<AppUser> signInManager, IEmailService emailService, IMemoryCache cache)
     {
         _logger = logger;
         _userManager = userManager;
         _signInManager = signInManager;
         _emailService = emailService;
+        _cache = cache;
     }
 
     public IActionResult Index()
@@ -34,7 +37,8 @@ public class HomeController : Controller
     {
         return View();
     }
-    [AllowAnonymous] 
+
+    [AllowAnonymous]
     [HttpGet]
     public IActionResult SignUp()
     {
@@ -45,8 +49,9 @@ public class HomeController : Controller
 
         return View();
     }
+
     [ValidateAntiForgeryToken] // Bu gerekli işlemlerin tek koldan ypaıldıgını dogrulayarak
-                               // CSRF saldirilarina korunaklı hale getirir
+    // CSRF saldirilarina korunaklı hale getirir
     [HttpPost]
     public async Task<IActionResult> SignUp(SignUpDto dto)
     {
@@ -85,6 +90,7 @@ public class HomeController : Controller
 
         return View();
     }
+
     [ValidateAntiForgeryToken]
     [HttpPost]
     public async Task<IActionResult> SignIn(SignInDto dto, string? returnURL) // Simdilik Return url ile ugrasmicaz
@@ -135,12 +141,24 @@ public class HomeController : Controller
     {
         return View();
     }
+
     [ValidateAntiForgeryToken]
     [HttpPost]
     public async Task<IActionResult> ForgotPassword(ForgotPasswordDto request)
     {
         if (ModelState.IsValid)
         {
+            string cacheKey = $"ForgotPw_{request.Email}"; // her mailin kendi cachesi olacak :)
+            if (_cache.TryGetValue(cacheKey, out _))
+            {
+                ModelState.AddModelError(String.Empty, "Zaten Sifirlama Maili " +
+                                                       $" {request.Email} adresinize" +
+                                                       "Gonderildi" +
+                                                       "Mail Adresinizi Kontrol Ediniz" +
+                                                       ",Lütfen Daha Sonra tekrar deneyiniz.");
+                return View(request);
+            }
+
             var hasUser = await _userManager.FindByEmailAsync(request.Email);
             if (hasUser == null)
             {
@@ -153,6 +171,14 @@ public class HomeController : Controller
                 protocol: HttpContext.Request.Scheme);
 
             await _emailService.SendResetPasswordEmailAsync(request.Email, pwResetLink);
+
+            _cache.Set(cacheKey, true, new MemoryCacheEntryOptions()
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(15),
+                Priority = CacheItemPriority.Normal,
+                // SlidingExpiration = TimeSpan.FromMinutes(5)
+            });
+
             TempData["Message"] = "Maile sifre yenileme linki iletildi";
             return RedirectToAction(nameof(ForgotPassword));
         }
@@ -160,51 +186,54 @@ public class HomeController : Controller
         return View();
     }
 
-        public async Task<IActionResult> ResetPassword(string userId, string token)
+    [AllowAnonymous]
+    [HttpGet]
+    public IActionResult ResetPassword(string userId, string token)
+    {
+        var model = new ResetPasswordDto()
         {
-            var model = new ResetPasswordDto()
-            {
-                UserId = userId,
-                Token = token
-            };
-            return View(model);
-        }
+            UserId = userId,
+            Token = token
+        };
+        return View(model);
+    }
 
-        [HttpPost]
-        public async Task<IActionResult> ResetPassword(ResetPasswordDto request)
+    [ValidateAntiForgeryToken]
+    [HttpPost]
+    public async Task<IActionResult> ResetPassword(ResetPasswordDto request)
+    {
+        if (request.Token != null)
         {
-            if (request.Token != null)
+            var hasUser = await _userManager.FindByIdAsync(request.UserId);
+            if (hasUser != null)
             {
-                var hasUser = await _userManager.FindByIdAsync(request.UserId);
-                if (hasUser != null)
+                var result = await _userManager.ResetPasswordAsync(hasUser, request.Token, request.Password);
+
+                if (result.Succeeded)
                 {
-                    var result = await _userManager.ResetPasswordAsync(hasUser, request.Token, request.Password);
-
-                    if (result.Succeeded)
+                    TempData["Message"] = "Sifreniz Basariyla Değiştirilmiştir";  // Kanka Bunla ugrasma git bi sifre değiştirme işlemi başarili sayfasina gonder 
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
                     {
-                        TempData["Message"] = "Sifreniz Basariyla Değiştirilmiştir";
-                    }
-                    else
-                    {
-                        foreach (var error in result.Errors)
-                        {
-                            ModelState.AddModelError(string.Empty, error.Description);
-                        }
-                        TempData["Message"] = "Hay Aksi bir sorun oluştu ";
-
+                        ModelState.AddModelError(string.Empty, error.Description);
                     }
 
-                    return View();
+                    TempData["Message"] = "Hay Aksi bir sorun oluştu ";
                 }
 
-                ModelState.AddModelError(key: string.Empty, "Kullanıcı bulunamadi.");
-                return View(request);
+                return View();
             }
 
-            var dto = request;
-            
-            return View();
+            ModelState.AddModelError(key: string.Empty, "Kullanıcı bulunamadi.");
+            return View(request);
         }
+
+        var dto = request;
+
+        return View();
+    }
 
 
     public async Task<IActionResult> AccessDenied()
