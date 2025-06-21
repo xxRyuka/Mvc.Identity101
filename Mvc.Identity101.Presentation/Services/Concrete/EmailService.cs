@@ -29,13 +29,14 @@ public class EmailService : IEmailService
         mailMessage.From = new MailAddress(_emailSettings.Email);
         mailMessage.To.Add(new MailAddress(toUserMail));
         mailMessage.Subject = "AspNetCore Identity Project Reset Password Linki";
-        mailMessage.Body = @$"Sifre Yenileme linkiniz : {resetPasswordLink}
-                        <h1>
+        mailMessage.Body = @$"<h2>Sifre Yenileme linkiniz :</h2> 
+                        <h5>
 
                             <p>
                                 <a href='{resetPasswordLink}'>Sifre Yenileme linki</a>
                             </p>
-                        </h1>
+                        </h5>
+
                         ";      
 
         mailMessage.IsBodyHtml = true;
