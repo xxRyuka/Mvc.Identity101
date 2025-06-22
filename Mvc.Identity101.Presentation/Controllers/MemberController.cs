@@ -40,7 +40,9 @@ public class MemberController : Controller
             UserName = user.UserName,
             Id = user.Id,
             Phone = user.PhoneNumber,
-        };
+            imgPath = string.IsNullOrEmpty(user.imgPath) 
+                ? "/img/default.jpg" 
+                : user.imgPath        };
 
         return View(dto);
     }
@@ -83,5 +85,51 @@ public class MemberController : Controller
             
         }
         return View();
+    }
+
+
+    //simdilik sadece footrafi güncelleyelim diğer alanlar kolay zaten 
+    [HttpGet]
+    public async Task<IActionResult> ChangePhoto()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ChangePhoto(TestProfileImgDto request)
+    {
+        
+
+        if (!ModelState.IsValid)
+        {
+            return View();
+        }
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user == null)
+        {
+            return RedirectToAction("AccessDenied");
+        }
+        
+        var result = request.img;
+        var extension = Path.GetExtension(result.FileName);
+        var fileName = Guid.NewGuid() + extension;
+        var pathFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/profileImg");
+        if (!Directory.Exists(pathFolder))
+        {
+            Directory.CreateDirectory(pathFolder);
+        }
+
+        var path = Path.Combine(pathFolder, fileName);
+        using (var stream = new FileStream(path, FileMode.Create))
+        {
+            await result.CopyToAsync(stream);
+        }
+        
+        
+        user.imgPath = "/img/profileImg/"+fileName;
+        await _userManager.UpdateAsync(user);
+        
+        return RedirectToAction("Index");
     }
 }

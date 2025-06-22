@@ -9,8 +9,20 @@
 <h1>@Model.UserName</h1>
 <h3>@Model.Email</h3>
 <h3>@Model.Phone</h3>
-<h3>@Model.Id</h3>
+<h3>@Model.Id ll</h3>
+
+
+<h5>
+    <a class="btn btn-success" asp-action="ChangePhoto" asp-controller="Member">Profil Fotosu</a>
+</h5>
+
 
 <h5>
     <a asp-action="ChangePassword" asp-controller="Member">Change Password </a>
 </h5>
+
+<p> img path su sekilde : @Model.imgPath</p>
+<img src="@Url.Content(Model.imgPath)
+" alt="Profil Fotoğrafı" class="rounded-circle" style="width:150px; height:150px; object-fit:cover;" >
+<br/>
+
