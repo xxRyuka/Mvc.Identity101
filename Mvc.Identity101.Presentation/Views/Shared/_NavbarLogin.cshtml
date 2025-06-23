@@ -20,11 +20,10 @@
                 <a class="nav-link text-dark" asp-controller="Member" asp-route-returnURL="/Home/SignIn"
                    asp-action="SignOut">Logout</a>
             </li>
-            <li class="nav-item">
-                <img src="@User.Identities.LastOrDefault()"/>
-                <a class="nav-link text-dark" asp-controller="Member" asp-route-returnURL="/Home/SignIn"
-                   asp-action="SignOut">Logout</a>
-            </li>
+            @* <li class="nav-item"> *@
+            @*     $1$ bunu claimsler araciliğiyla yapmam lazim  #1# *@
+            @*     $1$ <img src="@User.Identities.LastOrDefault()"/> #1# *@
+            @* </li> *@
         </ul>
     }
 }

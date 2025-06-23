@@ -25,6 +25,9 @@ builder.Services
         .Configuration); // cookileri extension methodla ayri biyerde yazdik ve ekledik buraya 
 // amaç program.cs karişmasin 
 
+
+builder.Services.AddScoped<IProfileImageService, ProfileImageService>();
+
 // builder.Services.AddDbContext<AppDbContext>(optionsAction: opt =>
 // {
 //     opt.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));

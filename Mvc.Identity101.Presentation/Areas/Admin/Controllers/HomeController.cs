@@ -33,6 +33,8 @@ public class HomeController : Controller
                 UserName = user.UserName,
                 Email = user.Email,
                 Id = user.Id,
+                imgPath = string.IsNullOrWhiteSpace(user.imgPath) ?  "/img/default.jpg" : user.imgPath,
+                PhoneNumber = user.PhoneNumber,
             });
         }
 

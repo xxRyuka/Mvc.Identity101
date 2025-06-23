@@ -1,0 +1,15 @@
+@model Mvc.Identity101.Data.Dto.ImgDetailDto
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>@Model.Description</h2>
+<h5>@Model.UploadDate</h5>
+<div class="col-md-4 col-sm-6">
+    <div class="gallery-item position-relative overflow-hidden rounded shadow-sm">
+
+            <img src="@Url.Content(@Model.ImgPath)"  class="img-fluid w-100 gallery-img"/>
+    </div>
+</div>

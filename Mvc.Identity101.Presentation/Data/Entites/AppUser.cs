@@ -6,5 +6,7 @@ public class AppUser : IdentityUser
 {
     public string? City { get; set; }
     public string? imgPath { get; set; }
+
+    public ICollection<UserPhoto> Gallery { get; set; } = new List<UserPhoto>();
     
 }

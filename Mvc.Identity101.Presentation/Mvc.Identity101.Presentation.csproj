@@ -29,7 +29,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\img\" />
+      <Folder Include="wwwroot\img\galleryImg\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Member\Index.cshtml" />
     </ItemGroup>
 
 </Project>

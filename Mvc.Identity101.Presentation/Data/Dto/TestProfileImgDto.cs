@@ -6,8 +6,8 @@ public class TestProfileImgDto
 {
 
     
-    // public string Id { get; set; }
-    // [DataType()]
     [Required]
     public IFormFile? img { get; set; }
+
+    public string description { get; set; }
 }

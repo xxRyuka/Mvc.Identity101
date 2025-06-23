@@ -48,6 +48,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\138a3b4c-2251-40bd-8eba-70b342bec2d4.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\1f7d185e-91a7-4a81-b07b-c6e1792d6b11.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Mvc.Identity101.Presentation</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Mvc.Identity101.Presentation</BasePath>
+      <RelativePath>img/1f7d185e-91a7-4a81-b07b-c6e1792d6b11.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\1f7d185e-91a7-4a81-b07b-c6e1792d6b11.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\3747476c-f2e1-4853-8575-48a137a3c20a.png))">
       <SourceType>Package</SourceType>
       <SourceId>Mvc.Identity101.Presentation</SourceId>
@@ -127,6 +143,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\e2271e49-a959-42f4-bf93-1195f2e9505a.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\profileImg\5b6e62e6-2fe7-46c2-b899-6bf738246138.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Mvc.Identity101.Presentation</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Mvc.Identity101.Presentation</BasePath>
+      <RelativePath>img/profileImg/5b6e62e6-2fe7-46c2-b899-6bf738246138.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\profileImg\5b6e62e6-2fe7-46c2-b899-6bf738246138.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\js\site.js))">
       <SourceType>Package</SourceType>
@@ -1071,6 +1103,70 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Mvc.Identity101.Presentation.bundle.scp.css))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\GalleryPhoto\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\59ac6ec5-74e4-4b3d-8b8a-d09c3cdc78cf.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Mvc.Identity101.Presentation</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Mvc.Identity101.Presentation</BasePath>
+      <RelativePath>uploads/GalleryPhoto/f74f9b93-40d5-4d52-a89e-b7e46d75bd0b/59ac6ec5-74e4-4b3d-8b8a-d09c3cdc78cf.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\GalleryPhoto\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\59ac6ec5-74e4-4b3d-8b8a-d09c3cdc78cf.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\GalleryPhoto\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\5ca1f5ef-4f2e-4508-ae3d-db0cee953d4d.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Mvc.Identity101.Presentation</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Mvc.Identity101.Presentation</BasePath>
+      <RelativePath>uploads/GalleryPhoto/f74f9b93-40d5-4d52-a89e-b7e46d75bd0b/5ca1f5ef-4f2e-4508-ae3d-db0cee953d4d.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\GalleryPhoto\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\5ca1f5ef-4f2e-4508-ae3d-db0cee953d4d.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\GalleryPhoto\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\96ee81df-3c82-4a4b-9196-5f1ef8696279.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Mvc.Identity101.Presentation</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Mvc.Identity101.Presentation</BasePath>
+      <RelativePath>uploads/GalleryPhoto/f74f9b93-40d5-4d52-a89e-b7e46d75bd0b/96ee81df-3c82-4a4b-9196-5f1ef8696279.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\GalleryPhoto\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\96ee81df-3c82-4a4b-9196-5f1ef8696279.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\GalleryPhoto\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\f64e4275-99cf-4f84-b695-2e3203f11589.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Mvc.Identity101.Presentation</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Mvc.Identity101.Presentation</BasePath>
+      <RelativePath>uploads/GalleryPhoto/f74f9b93-40d5-4d52-a89e-b7e46d75bd0b/f64e4275-99cf-4f84-b695-2e3203f11589.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\GalleryPhoto\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\f64e4275-99cf-4f84-b695-2e3203f11589.jpg))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

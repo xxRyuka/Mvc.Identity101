@@ -1,8 +1,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Mvc.Identity101.Data;
 using Mvc.Identity101.Data.Dto;
 using Mvc.Identity101.Data.Entites;
+using Mvc.Identity101.Services.Abstract;
+using Mvc.Identity101.Services.Data;
 
 namespace Mvc.Identity101.Controllers;
 
@@ -12,13 +16,17 @@ public class MemberController : Controller
     private readonly UserManager<AppUser> _userManager;
     private readonly RoleManager<AppRole> _roleManager;
     private readonly SignInManager<AppUser> _signInManager;
+    private readonly IProfileImageService _profileImageService;
+    private readonly AppDbContext _context;
 
     public MemberController(SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager,
-        UserManager<AppUser> userManager)
+        UserManager<AppUser> userManager, IProfileImageService profileImageService, AppDbContext context)
     {
         _signInManager = signInManager;
         _roleManager = roleManager;
         _userManager = userManager;
+        _profileImageService = profileImageService;
+        _context = context;
     }
 
     public async Task SignOut()
@@ -28,7 +36,13 @@ public class MemberController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var user = await _userManager.GetUserAsync(User);
+        // var user = await _userManager.GetUserAsync(User);
+        
+        // fotoyla işlem yapılacaği için böyle yapabiliriz
+        var user = await _context.Users
+            .Include(u => u.Gallery)
+            .FirstOrDefaultAsync(u => u.Id == _userManager.GetUserId(User));
+
         if (user == null)
         {
             return RedirectToAction("AccessDenied");
@@ -40,9 +54,16 @@ public class MemberController : Controller
             UserName = user.UserName,
             Id = user.Id,
             Phone = user.PhoneNumber,
-            imgPath = string.IsNullOrEmpty(user.imgPath) 
-                ? "/img/default.jpg" 
-                : user.imgPath        };
+            imgPath = string.IsNullOrEmpty(user.imgPath)
+                ? "/img/default.jpg"
+                : user.imgPath,
+            
+        };
+
+        foreach (var photo in user.Gallery)
+        {
+            dto.Photos.Add(photo);
+        }
 
         return View(dto);
     }
@@ -52,6 +73,7 @@ public class MemberController : Controller
     {
         return View();
     }
+
     [ValidateAntiForgeryToken]
     [HttpPost]
     public async Task<IActionResult> ChangePassword(ChangePasswordDto request)
@@ -64,7 +86,7 @@ public class MemberController : Controller
 
             if (checkPassword)
             {
-                var result =  await _userManager.ChangePasswordAsync(user, request.OldPassword, request.NewPassword);
+                var result = await _userManager.ChangePasswordAsync(user, request.OldPassword, request.NewPassword);
 
                 if (!result.Succeeded)
                 {
@@ -75,15 +97,17 @@ public class MemberController : Controller
                     }
                 }
 
-                await _userManager.UpdateSecurityStampAsync(user); // sifre gibi kritik bir veri değiştirdiğimiz için güncelliyoruz
+                await _userManager
+                    .UpdateSecurityStampAsync(user); // sifre gibi kritik bir veri değiştirdiğimiz için güncelliyoruz
                 await _signInManager.SignOutAsync();
                 await _signInManager.PasswordSignInAsync(user, request.NewPassword, true, false);
                 TempData["Message"] = "Your password has been changed successfully";
                 return View();
             }
+
             ModelState.AddModelError(string.Empty, "The current password is incorrect");
-            
         }
+
         return View();
     }
 
@@ -98,19 +122,18 @@ public class MemberController : Controller
     [HttpPost]
     public async Task<IActionResult> ChangePhoto(TestProfileImgDto request)
     {
-        
-
         if (!ModelState.IsValid)
         {
             return View();
         }
+
         var user = await _userManager.GetUserAsync(User);
 
         if (user == null)
         {
             return RedirectToAction("AccessDenied");
         }
-        
+
         var result = request.img;
         var extension = Path.GetExtension(result.FileName);
         var fileName = Guid.NewGuid() + extension;
@@ -125,11 +148,59 @@ public class MemberController : Controller
         {
             await result.CopyToAsync(stream);
         }
-        
-        
-        user.imgPath = "/img/profileImg/"+fileName;
+
+
+        user.imgPath = "/img/profileImg/" + fileName;
         await _userManager.UpdateAsync(user);
-        
+
         return RedirectToAction("Index");
+    }
+
+
+    [HttpGet]
+    public async Task<IActionResult> TestProfileImg()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> TestProfileImg(TestProfileImgDto dto)
+    {
+        var user = await _userManager.GetUserAsync(User);
+
+        var path = await _profileImageService.SaveImageAsync(user.Id, dto.img, ImageType.GalleryPhoto);
+
+        var photo = new UserPhoto
+        {
+            imgPath = path,
+            UserId = user.Id,
+            User = user,
+            Description = dto.description,
+        };
+        await _context.UserPhotos.AddAsync(photo);
+        user.Gallery.Add(photo);
+        _context.Update(user);
+        await _context.SaveChangesAsync();
+        return RedirectToAction("Index");
+    }
+
+
+    public async Task<IActionResult> ImgDetail(int id)
+    {
+        // var user = await _userManager.GetUserAsync(User);
+        var img = await _context.UserPhotos.FindAsync(id);
+        if (img == null)
+        {
+            return NotFound();    
+        }
+
+        var detail = new ImgDetailDto()
+        {
+            Description = img.Description,
+            ImgPath = img.imgPath,
+            UploadDate = img.UploadDate
+        };
+        
+        return View(detail);
     }
 }

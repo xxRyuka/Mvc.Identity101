@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/Mvc.Identity101.Presentation.styles.css" asp-append-version="true"/>
+    
+    @RenderSection("css", required: false) <!-- View'e özel scriptler için -->
+
 </head>
 <body class="bg-dark text-white">
 <header>
