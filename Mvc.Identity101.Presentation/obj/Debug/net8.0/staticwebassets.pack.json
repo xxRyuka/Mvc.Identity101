@@ -41,8 +41,16 @@
       "PackagePath": "staticwebassets\\img\\e2271e49-a959-42f4-bf93-1195f2e9505a.png"
     },
     {
+      "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\img\\profileImg\\1e29ef16-f480-42af-b085-8d0c001f2d43.jpg",
+      "PackagePath": "staticwebassets\\img\\profileImg\\1e29ef16-f480-42af-b085-8d0c001f2d43.jpg"
+    },
+    {
       "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\img\\profileImg\\5b6e62e6-2fe7-46c2-b899-6bf738246138.jpg",
       "PackagePath": "staticwebassets\\img\\profileImg\\5b6e62e6-2fe7-46c2-b899-6bf738246138.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\img\\profileImg\\8272aa2f-6eed-477c-9993-c7d3eb5e80ef.jpg",
+      "PackagePath": "staticwebassets\\img\\profileImg\\8272aa2f-6eed-477c-9993-c7d3eb5e80ef.jpg"
     },
     {
       "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\js\\site.js",
@@ -275,6 +283,18 @@
     {
       "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\c050c5bb-9f25-4049-87bb-4af52a398972\\58ea193f-3842-444f-b4bd-4656523f6c5a.jpg",
+      "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\c050c5bb-9f25-4049-87bb-4af52a398972\\58ea193f-3842-444f-b4bd-4656523f6c5a.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\c050c5bb-9f25-4049-87bb-4af52a398972\\6f98e014-c000-49e9-9580-9ffc9294c9bb.jpg",
+      "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\c050c5bb-9f25-4049-87bb-4af52a398972\\6f98e014-c000-49e9-9580-9ffc9294c9bb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\\30ace2cb-ca13-461a-b41a-72fd29020bfd.jpg",
+      "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\\30ace2cb-ca13-461a-b41a-72fd29020bfd.jpg"
     },
     {
       "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\\59ac6ec5-74e4-4b3d-8b8a-d09c3cdc78cf.jpg",

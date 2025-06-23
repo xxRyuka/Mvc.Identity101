@@ -152,7 +152,7 @@ public class MemberController : Controller
 
         user.imgPath = "/img/profileImg/" + fileName;
         await _userManager.UpdateAsync(user);
-
+        // await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
 
