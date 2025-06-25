@@ -37,7 +37,7 @@ public class MemberController : Controller
     public async Task<IActionResult> Index()
     {
         // var user = await _userManager.GetUserAsync(User);
-        
+
         // fotoyla işlem yapılacaği için böyle yapabiliriz
         var user = await _context.Users
             .Include(u => u.Gallery)
@@ -57,7 +57,6 @@ public class MemberController : Controller
             imgPath = string.IsNullOrEmpty(user.imgPath)
                 ? "/img/default.jpg"
                 : user.imgPath,
-            
         };
 
         foreach (var photo in user.Gallery)
@@ -133,7 +132,8 @@ public class MemberController : Controller
         {
             return RedirectToAction("AccessDenied");
         }
-        var ServicePath= await _profileImageService.SaveImageAsync(user.Id, request.img,ImageType.ProfilePhoto);
+
+        var ServicePath = await _profileImageService.SaveImageAsync(user.Id, request.img, ImageType.ProfilePhoto);
         /// Artık Bu islemleri bir service araciliği ile Yapiyoruz :)
         // var result = request.img;
         // var extension = Path.GetExtension(result.FileName);
@@ -149,7 +149,7 @@ public class MemberController : Controller
         // {
         //     await result.CopyToAsync(stream);
         // } // 
-        
+
 
         user.imgPath = ServicePath;
         await _userManager.UpdateAsync(user);
@@ -192,16 +192,31 @@ public class MemberController : Controller
         var img = await _context.UserPhotos.FindAsync(id);
         if (img == null)
         {
-            return NotFound();    
+            return NotFound();
         }
 
         var detail = new ImgDetailDto()
         {
             Description = img.Description,
             ImgPath = img.imgPath,
-            UploadDate = img.UploadDate
+            UploadDate = img.UploadDate,
+            id = img.Id
         };
-        
+
         return View(detail);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteImg([FromForm] string path, [FromForm] int id)
+    {
+        var user = await _userManager.GetUserAsync(User);
+        if (user == null || string.IsNullOrWhiteSpace(path))
+            return BadRequest();
+
+        await _profileImageService.DeleteImageAsync(user.Id, path, ImageType.GalleryPhoto);
+        var ptoto = await _context.UserPhotos.FirstOrDefaultAsync(x =>x.Id == id);
+        _context.UserPhotos.Remove(ptoto);
+        await _userManager.UpdateAsync(user);
+        return RedirectToAction("Index");
     }
 }

@@ -7,5 +7,6 @@ public class ImgDetailDto
     public string ImgPath { get; set; }
     
     public DateTime UploadDate { get; set; }
+    public int? id { get; set; }
 
 }
