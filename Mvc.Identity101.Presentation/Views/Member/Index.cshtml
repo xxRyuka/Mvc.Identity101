@@ -31,6 +31,10 @@
     </style>
 }
 
+<h1>
+    @TempData["Message"]
+</h1>
+
 <h2>Detail Page</h2>
 <h1>@Model.UserName</h1>
 <h3>@Model.Email</h3>
@@ -58,7 +62,7 @@
                 <div class="gallery-item position-relative overflow-hidden rounded shadow-sm">
                     <a asp-controller="Member" asp-action="ImgDetail" asp-route-id="@photo.Id">
 
-                        <img src="@Url.Content(photo.imgPath)"  class="img-fluid w-100 gallery-img"/>
+                        <img src="@Url.Content(photo.imgPath)" class="img-fluid w-100 gallery-img"/>
                     </a>
                 </div>
             </div>

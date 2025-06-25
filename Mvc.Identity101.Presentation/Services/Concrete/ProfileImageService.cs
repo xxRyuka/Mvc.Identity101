@@ -77,10 +77,12 @@ public class ProfileImageService : IProfileImageService
             }
 
             var UploadPath =
+                // "wwwroot"
                 Path.Combine(_environment.WebRootPath, "uploads", $"{ImgType}", userId); //her id için yeni klasor ?
             if (!Directory.Exists(UploadPath))
                 Directory.CreateDirectory(UploadPath);
-            var guidName = Guid.NewGuid().ToString() + extension; // burda acik biraktim
+            // var guidName = Guid.NewGuid().ToString() + extension; // burda acik biraktim
+            var guidName = file.FileName;
 
             var filePath = Path.Combine(UploadPath, guidName);
 

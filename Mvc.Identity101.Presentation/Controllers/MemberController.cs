@@ -182,6 +182,7 @@ public class MemberController : Controller
         user.Gallery.Add(photo);
         _context.Update(user);
         await _context.SaveChangesAsync();
+        TempData["Message"] = $"imgPath = {path}";
         return RedirectToAction("Index");
     }
 
