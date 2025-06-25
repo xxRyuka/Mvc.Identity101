@@ -133,24 +133,25 @@ public class MemberController : Controller
         {
             return RedirectToAction("AccessDenied");
         }
+        var ServicePath= await _profileImageService.SaveImageAsync(user.Id, request.img,ImageType.ProfilePhoto);
+        /// Artık Bu islemleri bir service araciliği ile Yapiyoruz :)
+        // var result = request.img;
+        // var extension = Path.GetExtension(result.FileName);
+        // var fileName = Guid.NewGuid() + extension;
+        // var pathFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/profileImg");
+        // if (!Directory.Exists(pathFolder))
+        // {
+        //     Directory.CreateDirectory(pathFolder);
+        // }
+        //
+        // var path = Path.Combine(pathFolder, fileName);
+        // using (var stream = new FileStream(path, FileMode.Create))
+        // {
+        //     await result.CopyToAsync(stream);
+        // } // 
+        
 
-        var result = request.img;
-        var extension = Path.GetExtension(result.FileName);
-        var fileName = Guid.NewGuid() + extension;
-        var pathFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/profileImg");
-        if (!Directory.Exists(pathFolder))
-        {
-            Directory.CreateDirectory(pathFolder);
-        }
-
-        var path = Path.Combine(pathFolder, fileName);
-        using (var stream = new FileStream(path, FileMode.Create))
-        {
-            await result.CopyToAsync(stream);
-        }
-
-
-        user.imgPath = "/img/profileImg/" + fileName;
+        user.imgPath = ServicePath;
         await _userManager.UpdateAsync(user);
         // await _context.SaveChangesAsync();
         return RedirectToAction("Index");

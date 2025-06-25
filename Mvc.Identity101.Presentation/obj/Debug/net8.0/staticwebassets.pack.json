@@ -49,8 +49,16 @@
       "PackagePath": "staticwebassets\\img\\profileImg\\5b6e62e6-2fe7-46c2-b899-6bf738246138.jpg"
     },
     {
+      "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\img\\profileImg\\696e943a-3a3f-4d12-9dbe-a9fa20a8bfde.png",
+      "PackagePath": "staticwebassets\\img\\profileImg\\696e943a-3a3f-4d12-9dbe-a9fa20a8bfde.png"
+    },
+    {
       "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\img\\profileImg\\8272aa2f-6eed-477c-9993-c7d3eb5e80ef.jpg",
       "PackagePath": "staticwebassets\\img\\profileImg\\8272aa2f-6eed-477c-9993-c7d3eb5e80ef.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\img\\profileImg\\fbb6e1e5-5ab9-48b8-ac4c-a24a0c18d532.png",
+      "PackagePath": "staticwebassets\\img\\profileImg\\fbb6e1e5-5ab9-48b8-ac4c-a24a0c18d532.png"
     },
     {
       "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\js\\site.js",
@@ -293,6 +301,18 @@
       "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\c050c5bb-9f25-4049-87bb-4af52a398972\\6f98e014-c000-49e9-9580-9ffc9294c9bb.jpg"
     },
     {
+      "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\d2a42820-39e3-4321-a422-cacd5eb628a7\\c60a52f4-adad-4c59-ae19-0a5e36009825.jpg",
+      "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\d2a42820-39e3-4321-a422-cacd5eb628a7\\c60a52f4-adad-4c59-ae19-0a5e36009825.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\d5a368a4-e227-433b-b01b-bbd4cd2bfa7f\\565dca20-2c98-40ad-a433-8fe80def1e3f.jpg",
+      "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\d5a368a4-e227-433b-b01b-bbd4cd2bfa7f\\565dca20-2c98-40ad-a433-8fe80def1e3f.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\d5a368a4-e227-433b-b01b-bbd4cd2bfa7f\\dc59204e-c189-4dca-a4c9-3a57de60bb0d.png",
+      "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\d5a368a4-e227-433b-b01b-bbd4cd2bfa7f\\dc59204e-c189-4dca-a4c9-3a57de60bb0d.png"
+    },
+    {
       "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\\30ace2cb-ca13-461a-b41a-72fd29020bfd.jpg",
       "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\\30ace2cb-ca13-461a-b41a-72fd29020bfd.jpg"
     },
@@ -311,6 +331,10 @@
     {
       "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\\f64e4275-99cf-4f84-b695-2e3203f11589.jpg",
       "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\\f64e4275-99cf-4f84-b695-2e3203f11589.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Ryuka\\RiderProjects\\Mvc.Identity101\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\\fc108976-60c3-4467-a026-a0e7171c2177.jpg",
+      "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\f74f9b93-40d5-4d52-a89e-b7e46d75bd0b\\fc108976-60c3-4467-a026-a0e7171c2177.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Mvc.Identity101.Presentation.Microsoft.AspNetCore.StaticWebAssets.props",

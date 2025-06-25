@@ -7,6 +7,28 @@ public class ProfileImageService : IProfileImageService
 {
     public async Task<string> SaveImageAsync( string userId ,IFormFile file, ImageType ImgType)
     {
+        
+        
+        // simdi eger bir profil fotosu var ise imageTypei Profil fotosu ise ayri bir kontrol yapacağiz buda su oalcak
+        /// eski fotoyu sileceğiz ondan sonra ekleyeceğiz egerki imageType.Profile fotosu ise 
+
+        if (ImgType == ImageType.ProfilePhoto)
+        {
+            try
+            {
+                var UploadPath = Path.Combine("wwwroot", "uploads",$"{ImgType}",userId ); //her id için yeni klasor ?
+                if (Directory.Exists(UploadPath))
+                {
+                    Directory.Delete(UploadPath+"/", true);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        
         try
         {
 
