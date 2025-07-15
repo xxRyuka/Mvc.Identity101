@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Mvc.Identity101.Presentation.props" />
+</Project>
