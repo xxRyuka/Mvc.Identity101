@@ -511,3 +511,4 @@ C:\Users\ASUS\Desktop\.prj\Mvc.Identity101-main\Mvc.Identity101.Presentation\obj
 C:\Users\ASUS\Desktop\.prj\Mvc.Identity101-main\Mvc.Identity101.Presentation\obj\Debug\net8.0\Mvc.Identity101.Presentation.pdb
 C:\Users\ASUS\Desktop\.prj\Mvc.Identity101-main\Mvc.Identity101.Presentation\obj\Debug\net8.0\Mvc.Identity101.Presentation.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\.prj\Mvc.Identity101-main\Mvc.Identity101.Presentation\obj\Debug\net8.0\ref\Mvc.Identity101.Presentation.dll
+C:\Users\ASUS\Desktop\.prj\Mvc.Identity101-main\Mvc.Identity101.Presentation\obj\Debug\net8.0\Mvc.Identity101.Presentation.sourcelink.json
