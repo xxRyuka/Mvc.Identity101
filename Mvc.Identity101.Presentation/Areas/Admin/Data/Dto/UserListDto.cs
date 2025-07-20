@@ -9,4 +9,6 @@ public record UserListDto
     public string PhoneNumber { get; set; }
     
     public string imgPath{ get; set; }
+    
+    public List<string> Roles { get; set; }
 }

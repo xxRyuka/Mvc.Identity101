@@ -1,0 +1,23 @@
+@model List<Mvc.Identity101.Areas.Admin.Data.Dto.ViewRoleDto>
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Role Page </h2>
+
+<a asp-controller="Role" asp-area="Admin" asp-action="AddRole" class="btn btn-outline-info">Add Role</a>
+
+<div>
+    @foreach (var item in Model)
+    {
+        <div>
+            <h6> @item.Id : @item.Name</h6>
+            <a class="btn btn-warning" asp-action="EditRole" asp-route-id="@item.Id" asp-controller="Role"
+               asp-area="Admin">Edit Role</a>
+            <a class="btn btn-danger" asp-action="DeleteRole" asp-route-id="@item.Id" asp-controller="Role"
+               asp-area="Admin">Remove Role</a>
+
+        </div>
+    }
+</div>

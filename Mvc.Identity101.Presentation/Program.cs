@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Mvc.Identity101.ClaimProvider;
 using Mvc.Identity101.Data;
 using Mvc.Identity101.Data.Entites;
 using Mvc.Identity101.Extensions;
@@ -27,6 +29,15 @@ builder.Services
 
 
 builder.Services.AddScoped<IProfileImageService, ProfileImageService>();
+builder.Services.AddScoped<IClaimsTransformation, UserClaimProvider>();
+
+builder.Services.AddAuthorization(opt =>
+{
+    opt.AddPolicy("Nodeirn", policy =>
+    {
+        policy.RequireClaim("city", "Nodeirn");
+    });
+});
 
 // builder.Services.AddDbContext<AppDbContext>(optionsAction: opt =>
 // {

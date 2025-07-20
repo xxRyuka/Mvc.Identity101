@@ -31,9 +31,11 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        var userClaims = HttpContext.User.Claims.ToList();
+          // userClaims;
+        return View(userClaims);
     }
-
+    [Authorize(Policy = "Nodeirn")]
     public async Task<IActionResult> PublicList()
     {
         var list = await _userManager.Users.ToListAsync();

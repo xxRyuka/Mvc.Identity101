@@ -1,3 +1,4 @@
+@using System.Security.Claims
 @{
     if (!User.Identity.IsAuthenticated)
     {
@@ -8,11 +9,12 @@
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-controller="Home" asp-action="SignIn">Sign In</a>
             </li>
+
         </ul>
     }
     else
     {
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-middle">
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-controller="Member" asp-action="Index">@User.Identity.Name</a>
             </li>
@@ -20,6 +22,19 @@
                 <a class="nav-link text-dark" asp-controller="Member" asp-route-returnURL="/Home/SignIn"
                    asp-action="SignOut">Logout</a>
             </li>
+
+
+            @if (User.HasClaim(x => x.Type == ClaimTypes.Role && x.Value == "god"))
+            {
+                <li class="nav-item">
+                    <div class="align-middle">
+
+                        <a class="nav-link text-dark badge bg-gradient bg-danger" asp-area="Admin" asp-controller="Home"
+                           asp-action="Index">Admin Page</a>
+                    </div>
+                </li>
+            }
+
             @* <li class="nav-item"> *@
             @*     $1$ bunu claimsler araciliğiyla yapmam lazim  #1# *@
             @*     $1$ <img src="@User.Identities.LastOrDefault()"/> #1# *@

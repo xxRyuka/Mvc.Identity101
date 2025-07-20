@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -5,7 +6,7 @@ using Mvc.Identity101.Areas.Admin.Data.Dto;
 using Mvc.Identity101.Data.Entites;
 
 namespace Mvc.Identity101.Areas.Admin.Controllers;
-
+[Authorize(Roles = "god")]
 [Area("Admin")]
 public class HomeController : Controller
 {
@@ -27,16 +28,17 @@ public class HomeController : Controller
         List<UserListDto> DtoUserList = new List<UserListDto>();
         foreach (var user in userList)
         {
-           
-            DtoUserList.Add( new ()
+            DtoUserList.Add(new()
             {
                 UserName = user.UserName,
                 Email = user.Email,
                 Id = user.Id,
-                imgPath = string.IsNullOrWhiteSpace(user.imgPath) ?  "/img/default.jpg" : user.imgPath,
+                imgPath = string.IsNullOrWhiteSpace(user.imgPath) ? "/img/default.jpg" : user.imgPath,
                 PhoneNumber = user.PhoneNumber,
+                Roles =  _userManager.GetRolesAsync(user).Result.ToList()
             });
         }
+
 
         return View(DtoUserList);
     }

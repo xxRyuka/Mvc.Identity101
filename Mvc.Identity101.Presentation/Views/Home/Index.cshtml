@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<System.Security.Claims.Claim>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 @if (TempData["Error"] != null)
@@ -7,8 +9,13 @@
         @TempData["Error"]
     </div>
 }
-
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core '</a>.</p>
 </div>
+
+
+@foreach (var claim in Model)
+{
+    <p>@claim.Type = @claim.Value </p>
+}

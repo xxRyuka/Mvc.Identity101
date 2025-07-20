@@ -1,8 +1,20 @@
-@model dynamic
-
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Yetkisiz Giriş";
     Layout = "_Layout";
 }
 
-<h2>Yetkisiz giris kankaa</h2>
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="text-center">
+        <div class="mb-4">
+            <i class="bi bi-emoji-frown text-danger" style="font-size: 6rem;"></i>
+        </div>
+        <h1 class="display-4 fw-bold text-danger">403 - Erişim Reddedildi</h1>
+        <p class="lead text-secondary mt-3 mb-4">
+            Kanka buraya girmen için özel yetki lazım. <br/>
+            Belki de yanlış yere geldin? 🙈
+        </p>
+        <a href="/" class="btn btn-lg btn-danger px-4 py-2 shadow">
+            Ana Sayfaya Geri Dön
+        </a>
+    </div>
+</div>

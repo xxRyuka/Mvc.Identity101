@@ -1,0 +1,14 @@
+@model Mvc.Identity101.Areas.Admin.Data.Dto.AddRoleDto
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Role Ekleme Kismisisisisis</h2>
+
+
+<form method="post" asp-action="AddRole" asp-controller="Role" asp-area="Admin">
+    <input asp-for="Name" type="text" class="form-control my-2"/>
+    <button type="submit" class="btn btn-success">Ekle</button>
+</form>
