@@ -1,67 +1,517 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - Mvc.Identity101.Presentation</title>
+    <title>@ViewData["Title"] - Identity Hub</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/Mvc.Identity101.Presentation.styles.css" asp-append-version="true"/>
-    
-    @RenderSection("css", required: false) <!-- View'e özel scriptler için -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    @RenderSection("css", required: false)
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite alternate;
+        }
+
+        @@keyframes backgroundShift {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .navbar-premium {
+            background: rgba(15, 23, 42, 0.8) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            padding: 1rem 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+        }
+
+        .navbar-premium.scrolled {
+            background: rgba(15, 23, 42, 0.95) !important;
+            padding: 0.75rem 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-brand-premium {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa, #a855f7, #ec4899);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite;
+            text-decoration: none;
+            letter-spacing: -0.025em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .navbar-brand-premium:hover {
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-icon {
+            background: linear-gradient(135deg, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2rem;
+        }
+
+        @@keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .nav-link-premium {
+            color: #cbd5e1 !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.75rem 1.25rem !important;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link-premium:hover {
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-link-premium:hover::before {
+            left: 100%;
+        }
+
+        .nav-link-premium.active {
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(168, 85, 247, 0.2));
+            color: #ffffff !important;
+            box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+        }
+
+        .btn-auth-primary {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-auth-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-auth-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+            color: white;
+        }
+
+        .btn-auth-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-auth-secondary {
+            background: transparent;
+            border: 2px solid rgba(148, 163, 184, 0.3);
+            color: #cbd5e1;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-auth-secondary:hover {
+            background: rgba(148, 163, 184, 0.1);
+            border-color: rgba(148, 163, 184, 0.5);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .user-dropdown {
+            position: relative;
+        }
+
+        .user-avatar-premium {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #60a5fa, #a855f7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+        }
+
+        .user-avatar-premium:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4);
+        }
+
+        .dropdown-menu-premium {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            padding: 1rem 0;
+            margin-top: 0.5rem;
+            min-width: 240px;
+        }
+
+        .dropdown-item-premium {
+            color: #cbd5e1;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 500;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            text-decoration: none;
+        }
+
+        .dropdown-item-premium:hover {
+            background: rgba(96, 165, 250, 0.1);
+            color: #ffffff;
+            padding-left: 2rem;
+        }
+
+        .dropdown-item-premium.danger:hover {
+            background: rgba(239, 68, 68, 0.1);
+            color: #fca5a5;
+        }
+
+        .admin-badge-premium {
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .admin-badge-premium::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #f59e0b, #ef4444, #f59e0b);
+            border-radius: 22px;
+            z-index: -1;
+            animation: borderGlow 2s linear infinite;
+        }
+
+        @@keyframes borderGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .admin-badge-premium:hover {
+            transform: scale(1.05);
+            color: white;
+            text-decoration: none;
+        }
+
+        .main-content {
+            min-height: calc(100vh - 140px);
+            padding: 2rem 0;
+        }
+
+        .footer-premium {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            padding: 2rem 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .footer-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-link:hover {
+            color: #60a5fa;
+        }
+
+        .navbar-toggler-premium {
+            border: none;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar-toggler-premium:focus {
+            box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.3);
+        }
+
+        .navbar-toggler-icon-premium {
+            width: 24px;
+            height: 18px;
+            position: relative;
+            transform: rotate(0deg);
+            transition: 0.3s ease-in-out;
+        }
+
+        .navbar-toggler-icon-premium span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: #cbd5e1;
+            border-radius: 2px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: 0.3s ease-in-out;
+        }
+
+        .navbar-toggler-icon-premium span:nth-child(1) { top: 0px; }
+        .navbar-toggler-icon-premium span:nth-child(2) { top: 7px; }
+        .navbar-toggler-icon-premium span:nth-child(3) { top: 14px; }
+
+        .container-premium {
+            max-width: 1400px;
+        }
+
+        @@media (max-width: 991.98px) {
+        .navbar-premium {
+            padding: 0.75rem 0;
+        }
+
+        .navbar-brand-premium {
+            font-size: 1.5rem;
+        }
+
+        .nav-link-premium {
+            padding: 0.5rem 1rem !important;
+            margin: 0.25rem 0;
+        }
+
+        .btn-auth-primary {
+            width: 100%;
+            justify-content: center;
+            margin: 0.5rem 0;
+        }
+
+        .btn-auth-secondary {
+            width: 100%;
+            justify-content: center;
+            margin: 0.5rem 0;
+        }
+        }
+
+        @@media (max-width: 575.98px) {
+        .container-premium {
+            padding: 0 1rem;
+        }
+
+        .main-content {
+            padding: 1rem 0;
+        }
+        }
+    </style>
 </head>
-<body class="bg-dark text-white">
+<body class="d-flex flex-column">
 <header>
-    <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home"
-               asp-action="Index">Mvc.Identity101.Presentation</a>
+    <nav class="navbar navbar-expand-lg navbar-premium">
+        <div class="container container-premium">
+            <a class="navbar-brand-premium" asp-area="" asp-controller="Home" asp-action="Index">
+                <i class="fas fa-shield-alt brand-icon"></i>
+                Identity Hub
+            </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler navbar-toggler-premium" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <div class="navbar-toggler-icon-premium">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- SOLDAKİ NAV -->
+            <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link-premium" asp-controller="Home" asp-action="Index">
+                            <i class="fas fa-home"></i>
+                            Ana Sayfa
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link-premium" asp-controller="Home" asp-action="Privacy">
+                            <i class="fas fa-user-shield"></i>
+                            Gizlilik
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="Home" asp-action="PublicList">Public List</a>
+                        <a class="nav-link-premium" asp-controller="Home" asp-action="PublicList">
+                            <i class="fas fa-list-ul"></i>
+                            Genel Liste
+                        </a>
                     </li>
                 </ul>
-                
-                @* partial olarak ekledim ki karisiklik olmasin  *@
+
                 <partial name="_NavbarLogin"/>
-
-
             </div>
         </div>
     </nav>
-
 </header>
-<div class="container">
-    <main role="main" class="pb-3">
+
+<div class="container container-premium main-content flex-grow-1">
+    <main role="main">
         @RenderBody()
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2025 - Mvc.Identity101.Presentation - <a asp-area="" asp-controller="Home"
-                                                        asp-action="Privacy">Privacy</a>
+<footer class="footer-premium">
+    <div class="container container-premium">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="footer-content">
+                    <strong>&copy; 2025 Identity Hub</strong> - Tüm hakları saklıdır.
+                </div>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a asp-area="" asp-controller="Home" asp-action="Privacy" class="footer-link">
+                    <i class="fas fa-shield-alt"></i>
+                    Gizlilik Politikası
+                </a>
+            </div>
+        </div>
     </div>
 </footer>
+
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
+
+<script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar-premium');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Active link highlighting
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentLocation = location.pathname;
+        const menuItems = document.querySelectorAll('.nav-link-premium');
+
+        menuItems.forEach(item => {
+            if(item.getAttribute('href') === currentLocation) {
+                item.classList.add('active');
+            }
+        });
+    });
+</script>
+
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

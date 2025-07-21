@@ -40,9 +40,8 @@ button.accept-policy[b-2x07fbyqgz] {
 }
 
 .footer[b-2x07fbyqgz] {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+  position: unset !important;
+  bottom: unset !important;
+  line-height: unset !important;
+  white-space: unset !important;
 }
