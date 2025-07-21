@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Mvc.Identity101.Presentation.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin.css"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -265,12 +269,12 @@
       "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\54b3db6cd12bf02de1210a390a4b34d7.jpg"
     },
     {
-      "Id": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\64ad07b9-d432-42c3-93e3-67e98a331cd8\\0d7f4f3ad66979a2a452907cb1944f32.jpg",
-      "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\64ad07b9-d432-42c3-93e3-67e98a331cd8\\0d7f4f3ad66979a2a452907cb1944f32.jpg"
+      "Id": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\e25158840ecb962f4619f7c979ee5c96.jpg",
+      "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\e25158840ecb962f4619f7c979ee5c96.jpg"
     },
     {
-      "Id": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\93f5a050-3eef-4e99-bb27-527a06c7fcaa\\7a1393517fb8473dec58100ca224e040.jpg",
-      "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\93f5a050-3eef-4e99-bb27-527a06c7fcaa\\7a1393517fb8473dec58100ca224e040.jpg"
+      "Id": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\64ad07b9-d432-42c3-93e3-67e98a331cd8\\0d7f4f3ad66979a2a452907cb1944f32.jpg",
+      "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\64ad07b9-d432-42c3-93e3-67e98a331cd8\\0d7f4f3ad66979a2a452907cb1944f32.jpg"
     },
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\93f5a050-3eef-4e99-bb27-527a06c7fcaa\\e1c156038a25c3af4933869f1a749d14.jpg",
@@ -283,6 +287,10 @@
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\default.jpg",
       "PackagePath": "staticwebassets\\uploads\\GalleryPhoto\\default.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\ProfilePhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\2bd4490cdbf726ba3158df1b7f8197ca.jpg",
+      "PackagePath": "staticwebassets\\uploads\\ProfilePhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\2bd4490cdbf726ba3158df1b7f8197ca.jpg"
     },
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\ProfilePhoto\\64ad07b9-d432-42c3-93e3-67e98a331cd8\\00a02138acc887ba5059b230dc902e21.jpg",

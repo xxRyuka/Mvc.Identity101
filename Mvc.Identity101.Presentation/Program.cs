@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Mvc.Identity101.ClaimProvider;
 using Mvc.Identity101.Data;
 using Mvc.Identity101.Data.Entites;
 using Mvc.Identity101.Extensions;
+using Mvc.Identity101.Requirements;
 using Mvc.Identity101.Services.Abstract;
 using Mvc.Identity101.Services.Concrete;
 using Mvc.Identity101.Services.Data.Dto;
@@ -27,7 +29,7 @@ builder.Services
         .Configuration); // cookileri extension methodla ayri biyerde yazdik ve ekledik buraya 
 // amaç program.cs karişmasin 
 
-
+builder.Services.AddScoped<IAuthorizationHandler, ExchangeExpireHandler>();
 builder.Services.AddScoped<IProfileImageService, ProfileImageService>();
 builder.Services.AddScoped<IClaimsTransformation, UserClaimProvider>();
 
@@ -36,6 +38,11 @@ builder.Services.AddAuthorization(opt =>
     opt.AddPolicy("Nodeirn", policy =>
     {
         policy.RequireClaim("city", "Nodeirn");
+    });
+    
+    opt.AddPolicy("ExchangePolicy", policy =>
+    {
+        policy.AddRequirements(new ExchangeExpireRequirement());
     });
 });
 

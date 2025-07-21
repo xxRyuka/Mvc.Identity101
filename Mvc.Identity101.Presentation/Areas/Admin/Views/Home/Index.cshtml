@@ -1,7 +1,64 @@
-
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Dashboard";
     Layout = "_Layout";
 }
 
-<h2>u are in Home index </h2>
+<div class="admin-container">
+    <h2 class="admin-title">
+        <i class="bi bi-speedometer2"></i>
+        Dashboard
+    </h2>
+
+    <div class="admin-stats">
+        <div class="admin-stat-card">
+            <div class="admin-stat-title">Toplam Kullanıcı</div>
+            <div class="admin-stat-value">
+                <i class="bi bi-people me-2"></i>@ViewBag.UserCount
+            </div>
+        </div>
+        <div class="admin-stat-card">
+            <div class="admin-stat-title">Toplam Rol</div>
+            <div class="admin-stat-value">
+                <i class="bi bi-shield me-2"></i>@ViewBag.RoleCount
+            </div>
+        </div>
+        <div class="admin-stat-card">
+            <div class="admin-stat-title">Aktif Oturumlar</div>
+            <div class="admin-stat-value">
+                <i class="bi bi-person-check me-2"></i>@ViewBag.ActiveSessions
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="admin-card h-100">
+                <h5 class="mb-4">Hızlı İşlemler</h5>
+                <div class="d-grid gap-2">
+                    <a asp-action="UserList" class="btn btn-outline-primary">
+                        <i class="bi bi-people me-2"></i>Kullanıcı Listesi
+                    </a>
+                    <a asp-controller="Role" asp-action="AddRole" class="btn btn-outline-primary">
+                        <i class="bi bi-plus-circle me-2"></i>Yeni Rol Ekle
+                    </a>
+                    <a asp-controller="Role" asp-action="AssignRole" class="btn btn-outline-primary">
+                        <i class="bi bi-person-plus me-2"></i>Rol Ata
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="admin-card h-100">
+                <h5 class="mb-4">Son Aktiviteler</h5>
+                <div class="list-group list-group-flush">
+                    @foreach (var activity in ViewBag.RecentActivities ?? new string[0])
+                    {
+                        <div class="list-group-item bg-transparent border-light">
+                            <i class="bi bi-clock-history me-2"></i>@activity
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "w68sxkSBL3CcxWGQx+Qi6kntsjktdT8eOJ2uWfAxB6I=",
+  "Hash": "XpnWDo8FCQSZ1j+1CHbJw5iz30OtHiFTl1URHmaF2ao=",
   "Source": "Mvc.Identity101.Presentation",
   "BasePath": "_content/Mvc.Identity101.Presentation",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Mvc.Identity101.Presentation.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\css\\admin.css",
+      "SourceId": "Mvc.Identity101.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\",
+      "BasePath": "_content/Mvc.Identity101.Presentation",
+      "RelativePath": "css/admin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\admin.css"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\css\\site.css",
@@ -1309,6 +1328,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\GalleryPhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\54b3db6cd12bf02de1210a390a4b34d7.jpg"
     },
     {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\e25158840ecb962f4619f7c979ee5c96.jpg",
+      "SourceId": "Mvc.Identity101.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\",
+      "BasePath": "_content/Mvc.Identity101.Presentation",
+      "RelativePath": "uploads/GalleryPhoto/27fb4953-05a8-4b31-ac76-79e68dae44c2/e25158840ecb962f4619f7c979ee5c96.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\GalleryPhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\e25158840ecb962f4619f7c979ee5c96.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\64ad07b9-d432-42c3-93e3-67e98a331cd8\\0d7f4f3ad66979a2a452907cb1944f32.jpg",
       "SourceId": "Mvc.Identity101.Presentation",
       "SourceType": "Discovered",
@@ -1326,25 +1364,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\GalleryPhoto\\64ad07b9-d432-42c3-93e3-67e98a331cd8\\0d7f4f3ad66979a2a452907cb1944f32.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\93f5a050-3eef-4e99-bb27-527a06c7fcaa\\7a1393517fb8473dec58100ca224e040.jpg",
-      "SourceId": "Mvc.Identity101.Presentation",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\",
-      "BasePath": "_content/Mvc.Identity101.Presentation",
-      "RelativePath": "uploads/GalleryPhoto/93f5a050-3eef-4e99-bb27-527a06c7fcaa/7a1393517fb8473dec58100ca224e040.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\GalleryPhoto\\93f5a050-3eef-4e99-bb27-527a06c7fcaa\\7a1393517fb8473dec58100ca224e040.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\93f5a050-3eef-4e99-bb27-527a06c7fcaa\\e1c156038a25c3af4933869f1a749d14.jpg",
@@ -1402,6 +1421,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\GalleryPhoto\\default.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\ProfilePhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\2bd4490cdbf726ba3158df1b7f8197ca.jpg",
+      "SourceId": "Mvc.Identity101.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\",
+      "BasePath": "_content/Mvc.Identity101.Presentation",
+      "RelativePath": "uploads/ProfilePhoto/27fb4953-05a8-4b31-ac76-79e68dae44c2/2bd4490cdbf726ba3158df1b7f8197ca.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\ProfilePhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\2bd4490cdbf726ba3158df1b7f8197ca.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\ProfilePhoto\\64ad07b9-d432-42c3-93e3-67e98a331cd8\\00a02138acc887ba5059b230dc902e21.jpg",

@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -35,6 +36,7 @@ public class HomeController : Controller
           // userClaims;
         return View(userClaims);
     }
+    
     [Authorize(Policy = "Nodeirn")]
     public async Task<IActionResult> PublicList()
     {
@@ -43,6 +45,15 @@ public class HomeController : Controller
     }
 
 
+    [Authorize(Policy = "ExchangePolicy")]
+    public async Task<IActionResult> Exchange()
+    {
+        // var list = await _userManager.Users.ToListAsync();
+        return View();
+    }
+
+    
+    
     [HttpGet]
     public async Task<IActionResult> UserDetail(string id)
     {
@@ -113,6 +124,11 @@ public async Task<IActionResult> SignUp(SignUpDto dto)
 
         if (result.Succeeded)
         {
+            var newClaim = new Claim("ExchangeExpire",DateTime.Now.AddDays(1).ToString());
+            var newUser = await _userManager.FindByEmailAsync(dto.Email);
+            
+            await _userManager.AddClaimAsync(newUser!, newClaim);
+            
             TempData["Message"] = $"User : {dto.UserName} created successfully";
             return RedirectToAction("SignUp");
         }

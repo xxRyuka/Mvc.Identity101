@@ -1,14 +1,36 @@
 @model Mvc.Identity101.Areas.Admin.Data.Dto.AddRoleDto
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Yeni Rol";
     Layout = "_Layout";
 }
 
-<h2>Role Ekleme Kismisisisisis</h2>
+<div class="admin-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="admin-card">
+                <h2 class="admin-title">
+                    <i class="bi bi-shield-plus"></i>
+                    Yeni Rol Ekle
+                </h2>
 
+                <form asp-action="AddRole" method="post">
+                    <div class="admin-form-group">
+                        <label asp-for="Name" class="form-label">Rol Adı</label>
+                        <input asp-for="Name" class="admin-form-control" placeholder="Rol adını girin"/>
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
 
-<form method="post" asp-action="AddRole" asp-controller="Role" asp-area="Admin">
-    <input asp-for="Name" type="text" class="form-control my-2"/>
-    <button type="submit" class="btn btn-success">Ekle</button>
-</form>
+                    <div class="d-flex gap-2 justify-content-end">
+                        <a asp-action="Index" class="btn btn-outline-primary">
+                            <i class="bi bi-arrow-left me-2"></i>Geri Dön
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-lg me-2"></i>Kaydet
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
