@@ -23,8 +23,8 @@
                 <div class="admin-card">
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div>
-                            <h5 class="mb-1">@role.Name</h5>
-                            <small class="admin-badge admin-badge-blue">x Kullanıcı</small>
+                            <h5  class="mb-1 badge fw-bold fs-6 rounded-pill bg-primary p-3">@role.Name</h5>
+                           
                         </div>
                         <div class="admin-actions">
                             <a asp-action="EditRole" asp-route-id="@role.Id" 
@@ -42,27 +42,8 @@
                         </div>
                     </div>
                     
-                    @* @if (role.Users.Any()) *@
-                    @* { *@
-                    @*     <div class="mb-3"> *@
-                    @*         <h6 class="text-muted mb-2">Rol Üyeleri</h6> *@
-                    @*         <div class="d-flex flex-wrap gap-2"> *@
-                    @*             @foreach (var user in role.Users.Take(5)) *@
-                    @*             { *@
-                    @*                 <span class="admin-badge admin-badge-green">@user</span> *@
-                    @*             } *@
-                    @*             @if (role.Users.Count > 5) *@
-                    @*             { *@
-                    @*                 <span class="admin-badge admin-badge-blue">+@(role.Users.Count - 5) daha</span> *@
-                    @*             } *@
-                    @*         </div> *@
-                    @*     </div> *@
-                    @* } *@
-                    @* *@
-                    <a asp-action="AssignRole" asp-route-id="@role.Id" 
-                       class="btn btn-outline-primary btn-sm w-100">
-                        <i class="bi bi-person-plus me-2"></i>Kullanıcı Ata
-                    </a>
+
+                    
                 </div>
             </div>
         }

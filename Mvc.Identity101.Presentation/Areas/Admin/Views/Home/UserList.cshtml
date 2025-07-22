@@ -8,7 +8,7 @@
 <div class="admin-container">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="admin-title mb-0">
-            <i class="bi bi-people"></i>
+            <i style="color:yellow" class="bi bi-people"></i>
             Kullanıcılar
         </h2>
         <div class="d-flex gap-2">
@@ -51,10 +51,8 @@
                                    class="admin-icon-button" title="Rol Ata">
                                     <i class="bi bi-shield-plus"></i>
                                 </a>
-                                <button class="admin-icon-button" onclick="resetPassword('@user.Id')" title="Şifre Sıfırla">
-                                    <i class="bi bi-key"></i>
-                                </button>
-                                <button class="admin-icon-button text-danger" onclick="deleteUser('@user.Id')" title="Kullanıcı Sil">
+                                <button type="button" class="admin-icon-button text-danger" 
+                                        title="Kullanıcı Sil" onclick="showDeleteModal('@user.Id', '@user.UserName')">
                                     <i class="bi bi-trash"></i>
                                 </button>
                             </div>
@@ -63,6 +61,36 @@
                 }
             </tbody>
         </table>
+    </div>
+</div>
+
+<!-- Silme Modal -->
+<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-black" id="deleteUserModalLabel">Kullanıcı Silme Onayı</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-black">
+                    <span style="color: black" class="badge bg-primary" id="deleteUserName"></span> kullanıcısını silmek istediğinize emin misiniz?
+                </p>
+                <p class="text-danger">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    Bu işlem geri alınamaz!
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <form id="deleteUserForm" method="post" asp-action="RemoveUser" asp-controller="Home" asp-area="Admin">
+                    <input type="hidden" id="deleteUserId" name="id" value="" />
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash me-2"></i>Sil
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -77,17 +105,12 @@
                 row.style.display = text.includes(searchText) ? '' : 'none';
             });
         });
-
-        function resetPassword(userId) {
-            if (confirm('Kullanıcının şifresini sıfırlamak istediğinize emin misiniz?')) {
-                // Şifre sıfırlama işlemi
-            }
-        }
-
-        function deleteUser(userId) {
-            if (confirm('Kullanıcıyı silmek istediğinize emin misiniz?')) {
-                // Kullanıcı silme işlemi
-            }
+        
+        function showDeleteModal(userId, userName) {
+            document.getElementById('deleteUserId').value = userId;
+            document.getElementById('deleteUserName').textContent = userName;
+            var deleteModal = new bootstrap.Modal(document.getElementById('deleteUserModal'));
+            deleteModal.show();
         }
     </script>
 }

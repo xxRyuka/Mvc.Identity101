@@ -73,6 +73,16 @@ public class MemberController : Controller
         return View();
     }
 
+    
+    public IActionResult Claims()
+    {
+        var userClaims = HttpContext.User.Claims.ToList();
+        // userClaims;
+        return View(userClaims);
+    }
+
+    
+    
     [ValidateAntiForgeryToken]
     [HttpPost]
     public async Task<IActionResult> ChangePassword(ChangePasswordDto request)

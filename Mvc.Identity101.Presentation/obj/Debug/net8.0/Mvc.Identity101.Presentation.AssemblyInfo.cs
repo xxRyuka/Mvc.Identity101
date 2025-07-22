@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mvc.Identity101.Presentation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2dc0d0610ced3832fb97077b465355c7e9c5ae69")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09552e36231f581a546ed969560bd202f0f243de")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mvc.Identity101.Presentation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mvc.Identity101.Presentation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

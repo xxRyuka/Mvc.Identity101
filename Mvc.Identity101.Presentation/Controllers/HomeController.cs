@@ -30,13 +30,12 @@ public class HomeController : Controller
         _cache = cache;
     }
 
+    
     public IActionResult Index()
     {
-        var userClaims = HttpContext.User.Claims.ToList();
-          // userClaims;
-        return View(userClaims);
+        return View();
     }
-    
+
     [Authorize(Policy = "Nodeirn")]
     public async Task<IActionResult> PublicList()
     {

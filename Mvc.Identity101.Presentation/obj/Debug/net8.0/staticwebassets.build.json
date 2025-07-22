@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XpnWDo8FCQSZ1j+1CHbJw5iz30OtHiFTl1URHmaF2ao=",
+  "Hash": "b2n3X3G+GlMrQVJvicu3GVwNme1MQ9N1S63ELd2fhaY=",
   "Source": "Mvc.Identity101.Presentation",
   "BasePath": "_content/Mvc.Identity101.Presentation",
   "Mode": "Default",
@@ -1328,25 +1328,6 @@
       "OriginalItemSpec": "wwwroot\\uploads\\GalleryPhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\54b3db6cd12bf02de1210a390a4b34d7.jpg"
     },
     {
-      "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\e25158840ecb962f4619f7c979ee5c96.jpg",
-      "SourceId": "Mvc.Identity101.Presentation",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\",
-      "BasePath": "_content/Mvc.Identity101.Presentation",
-      "RelativePath": "uploads/GalleryPhoto/27fb4953-05a8-4b31-ac76-79e68dae44c2/e25158840ecb962f4619f7c979ee5c96.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\GalleryPhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\e25158840ecb962f4619f7c979ee5c96.jpg"
-    },
-    {
       "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\64ad07b9-d432-42c3-93e3-67e98a331cd8\\0d7f4f3ad66979a2a452907cb1944f32.jpg",
       "SourceId": "Mvc.Identity101.Presentation",
       "SourceType": "Discovered",
@@ -1383,6 +1364,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\GalleryPhoto\\93f5a050-3eef-4e99-bb27-527a06c7fcaa\\e1c156038a25c3af4933869f1a749d14.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\9b69f5b2-dace-4abe-b08f-513c50181641\\7cad5bd89afae9444e26d82f0313795a.jpg",
+      "SourceId": "Mvc.Identity101.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\",
+      "BasePath": "_content/Mvc.Identity101.Presentation",
+      "RelativePath": "uploads/GalleryPhoto/9b69f5b2-dace-4abe-b08f-513c50181641/7cad5bd89afae9444e26d82f0313795a.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\GalleryPhoto\\9b69f5b2-dace-4abe-b08f-513c50181641\\7cad5bd89afae9444e26d82f0313795a.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\GalleryPhoto\\af24beb5-dfbd-46ce-a0a6-36b88febcb2b\\3c8bd1e99a61402055266f06c3f13c1d.jpg",
@@ -1423,12 +1423,12 @@
       "OriginalItemSpec": "wwwroot\\uploads\\GalleryPhoto\\default.jpg"
     },
     {
-      "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\ProfilePhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\2bd4490cdbf726ba3158df1b7f8197ca.jpg",
+      "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\ProfilePhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\5d733de3b0aa6e13cc260820795014b7.jpg",
       "SourceId": "Mvc.Identity101.Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\",
       "BasePath": "_content/Mvc.Identity101.Presentation",
-      "RelativePath": "uploads/ProfilePhoto/27fb4953-05a8-4b31-ac76-79e68dae44c2/2bd4490cdbf726ba3158df1b7f8197ca.jpg",
+      "RelativePath": "uploads/ProfilePhoto/27fb4953-05a8-4b31-ac76-79e68dae44c2/5d733de3b0aa6e13cc260820795014b7.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1439,15 +1439,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\ProfilePhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\2bd4490cdbf726ba3158df1b7f8197ca.jpg"
+      "OriginalItemSpec": "wwwroot\\uploads\\ProfilePhoto\\27fb4953-05a8-4b31-ac76-79e68dae44c2\\5d733de3b0aa6e13cc260820795014b7.jpg"
     },
     {
-      "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\ProfilePhoto\\64ad07b9-d432-42c3-93e3-67e98a331cd8\\00a02138acc887ba5059b230dc902e21.jpg",
+      "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\ProfilePhoto\\64ad07b9-d432-42c3-93e3-67e98a331cd8\\ae80a156d26376f4e6b63721326b3939.jpg",
       "SourceId": "Mvc.Identity101.Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\",
       "BasePath": "_content/Mvc.Identity101.Presentation",
-      "RelativePath": "uploads/ProfilePhoto/64ad07b9-d432-42c3-93e3-67e98a331cd8/00a02138acc887ba5059b230dc902e21.jpg",
+      "RelativePath": "uploads/ProfilePhoto/64ad07b9-d432-42c3-93e3-67e98a331cd8/ae80a156d26376f4e6b63721326b3939.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1458,7 +1458,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\ProfilePhoto\\64ad07b9-d432-42c3-93e3-67e98a331cd8\\00a02138acc887ba5059b230dc902e21.jpg"
+      "OriginalItemSpec": "wwwroot\\uploads\\ProfilePhoto\\64ad07b9-d432-42c3-93e3-67e98a331cd8\\ae80a156d26376f4e6b63721326b3939.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\ProfilePhoto\\93f5a050-3eef-4e99-bb27-527a06c7fcaa\\16cc9af8790588f5d2d1484609eb1874.jpg",
@@ -1497,6 +1497,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\ProfilePhoto\\af24beb5-dfbd-46ce-a0a6-36b88febcb2b\\1bece64d141970d5aa9de92f860340c7.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\uploads\\ProfilePhoto\\cdfa3032-fe10-4a1f-9618-e606f503a2fa\\5d733de3b0aa6e13cc260820795014b7.jpg",
+      "SourceId": "Mvc.Identity101.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\.prj\\Mvc.Identity101-main\\Mvc.Identity101.Presentation\\wwwroot\\",
+      "BasePath": "_content/Mvc.Identity101.Presentation",
+      "RelativePath": "uploads/ProfilePhoto/cdfa3032-fe10-4a1f-9618-e606f503a2fa/5d733de3b0aa6e13cc260820795014b7.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\ProfilePhoto\\cdfa3032-fe10-4a1f-9618-e606f503a2fa\\5d733de3b0aa6e13cc260820795014b7.jpg"
     }
   ]
 }

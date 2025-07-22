@@ -11,14 +11,18 @@ namespace Mvc.Identity101.Areas.Admin.Controllers;
 public class HomeController : Controller
 {
     private readonly UserManager<AppUser> _userManager;
+    private readonly RoleManager<AppRole> _roleManager;
 
-    public HomeController(UserManager<AppUser> userManager)
+    public HomeController(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
     {
         _userManager = userManager;
+        _roleManager = roleManager;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
+        ViewBag.UserCount = _userManager.Users.Count();
+        ViewBag.RoleCount = _roleManager.Roles.Count();
         return View();
     }
 
@@ -41,5 +45,18 @@ public class HomeController : Controller
 
 
         return View(DtoUserList);
+    }
+    
+    
+    [HttpPost]
+    public async Task<IActionResult> RemoveUser(string id)
+    {
+        var user = await _userManager.FindByIdAsync(id);
+        if (user == null)
+        {
+            return NotFound();
+        }
+        var result = await _userManager.DeleteAsync(user);
+        return RedirectToAction("UserList");
     }
 }

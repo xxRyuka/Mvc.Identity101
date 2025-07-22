@@ -11,6 +11,15 @@ public class ExchangeExpireHandler : AuthorizationHandler<ExchangeExpireRequirem
     protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
         ExchangeExpireRequirement requirement)
     {
+        
+        
+        if (context.User.IsInRole("god")) // eger kullanici god ise requirement'i basarili kiliyoruz
+        {
+            context.Succeed(requirement);
+            return Task.CompletedTask;
+        }
+
+        
         if (!context.User.HasClaim(x => x.Type == "ExchangeExpire")) // exchange expire yoksa pas geciyoz
         {
             context.Fail();
@@ -19,7 +28,7 @@ public class ExchangeExpireHandler : AuthorizationHandler<ExchangeExpireRequirem
 
         var ExchangeExpireClaim = context.User.Claims.FirstOrDefault(x => x.Type == "ExchangeExpire");
 
-        if (DateTime.Now > Convert.ToDateTime(ExchangeExpireClaim.Value))
+        if (DateTime.Now < Convert.ToDateTime(ExchangeExpireClaim.Value))
         {
             context.Fail();
             return Task.CompletedTask;
