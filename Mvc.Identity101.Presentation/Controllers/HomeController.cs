@@ -30,7 +30,7 @@ public class HomeController : Controller
         _cache = cache;
     }
 
-    
+    [Authorize(Policy = "TestPolicy")]
     public IActionResult Index()
     {
         return View();

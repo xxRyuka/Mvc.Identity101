@@ -28,7 +28,7 @@ builder.Services
     .AddExtendedCookieConfigurations(builder
         .Configuration); // cookileri extension methodla ayri biyerde yazdik ve ekledik buraya 
 // amaç program.cs karişmasin 
-
+builder.Services.AddSingleton<IAuthorizationHandler, TestRequirementHandler>();
 builder.Services.AddScoped<IAuthorizationHandler, ExchangeExpireHandler>();
 builder.Services.AddScoped<IProfileImageService, ProfileImageService>();
 builder.Services.AddScoped<IClaimsTransformation, UserClaimProvider>();
@@ -44,6 +44,12 @@ builder.Services.AddAuthorization(opt =>
     {
         policy.AddRequirements(new ExchangeExpireRequirement());
     });
+    
+    opt.AddPolicy("TestPolicy", p =>
+    {
+        p.AddRequirements(new  TestRequirement(){DynamicThresOld = -5} );
+    });
+    
 });
 
 // builder.Services.AddDbContext<AppDbContext>(optionsAction: opt =>
