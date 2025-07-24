@@ -8,6 +8,13 @@ public class ExchangeExpireRequirement : IAuthorizationRequirement
 
 public class ExchangeExpireHandler : AuthorizationHandler<ExchangeExpireRequirement>
 {
+    private readonly IHttpContextAccessor _httpContextAccessor;
+
+    public ExchangeExpireHandler(IHttpContextAccessor httpContextAccessor)
+    {
+        _httpContextAccessor = httpContextAccessor;
+    }
+
     protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
         ExchangeExpireRequirement requirement)
     {
@@ -22,6 +29,7 @@ public class ExchangeExpireHandler : AuthorizationHandler<ExchangeExpireRequirem
         
         if (!context.User.HasClaim(x => x.Type == "ExchangeExpire")) // exchange expire yoksa pas geciyoz
         {
+            _httpContextAccessor.HttpContext.Items["AuthFailReason"] = "ExchangeExpire claim not found.";
             context.Fail();
             return Task.CompletedTask;
         }
@@ -30,6 +38,8 @@ public class ExchangeExpireHandler : AuthorizationHandler<ExchangeExpireRequirem
 
         if (DateTime.Now < Convert.ToDateTime(ExchangeExpireClaim.Value))
         {
+            _httpContextAccessor.HttpContext.Items["AuthFailReason"] = "ExchangeExpire claim not found.";
+
             context.Fail();
             return Task.CompletedTask;
         }

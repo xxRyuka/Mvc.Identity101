@@ -12,7 +12,10 @@ public class TestRequirementHandler : AuthorizationHandler<TestRequirement>
 {
     protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, TestRequirement requirement)
     {
-        var mail = context.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
+        var mail1 = context.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
+        
+        var mail = context.User.FindFirst(ClaimTypes.Email) ?? context.User.FindFirst(type:"email");
+        
         if (mail is null)
         {
             context.Fail();

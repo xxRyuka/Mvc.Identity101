@@ -23,7 +23,7 @@ public class UserClaimProvider : IClaimsTransformation
         
         var user = await _userManager.FindByNameAsync(identityUser.Name);
 
-        if (string.IsNullOrWhiteSpace(user.City))
+        if (string.IsNullOrWhiteSpace(user?.City))
         {
             return principal;
         }

@@ -30,13 +30,79 @@ public class HomeController : Controller
         _cache = cache;
     }
 
+    
+    [HttpPost]
+    public IActionResult ExternalLogin(string provider, string? returnUrl = null)
+    {
+        // returnUrl = returnUrl ?? Url.Content("~/");
+        var redirectUrl = Url.Action("ExternalLoginCallback", "Home", new { returnUrl });
+        var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+        return Challenge(properties, provider);
+    }
+
+
+    [HttpGet]
+    public async Task<IActionResult> ExternalLoginCallback(string returnUrl)
+    {
+        var info = await _signInManager.GetExternalLoginInfoAsync();
+        if (info == null)
+        {
+            return RedirectToAction(nameof(SignIn));
+        }
+
+        // Kullanıcıyı bulmaya çalış
+        var user = await _userManager.FindByLoginAsync(info.LoginProvider, info.ProviderKey);
+        if (user == null)
+        {
+            // Kullanıcı bulunamadı, yeni kullanıcı oluştur
+            user = new AppUser
+            {
+                UserName = info.Principal.FindFirstValue(ClaimTypes.Email)?.Split("@")[0] ,
+                Email = info.Principal.FindFirstValue(ClaimTypes.Email),
+                imgPath = info.Principal.FindFirstValue("picture").Replace("=s96-c","=s1080-c") // Google'dan gelen profil fotoğrafı
+            };
+
+            var result = await _userManager.CreateAsync(user);
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+                return View("Error");
+            }
+
+            // Kullanıcıyı login et
+            await _userManager.AddLoginAsync(user, info);
+        }
+        
+        // Kullanıcıyı oturum açtır
+        await _signInManager.SignInAsync(user, isPersistent: false);
+
+        return RedirectToAction(nameof(Index));
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     [Authorize(Policy = "TestPolicy")]
     public IActionResult Index()
     {
         return View();
     }
 
-    [Authorize(Policy = "Nodeirn")]
+    // [Authorize(Policy = "Nodeirn")]
     public async Task<IActionResult> PublicList()
     {
         var list = await _userManager.Users.ToListAsync();
@@ -299,8 +365,10 @@ public async Task<IActionResult> ResetPassword(ResetPasswordDto request)
 }
 
 
-public async Task<IActionResult> AccessDenied()
+public IActionResult AccessDenied(string reason)
 {
+    reason = HttpContext.Items["AuthFailReason"]?.ToString();
+    ViewBag.Reason = reason;
     return View();
 }
 
